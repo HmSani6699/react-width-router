@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
@@ -6,21 +6,41 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Contact from "./component/Contact/Contact";
 import About from "./component/About/About";
 import Error from "./component/Error/Error";
+import Header from "./component/Header/Header";
+import Home from "./component/Home/Home";
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App></App>,
+//     errorElement:<Error></Error>,
+//   },
+//   {
+//     path: "/contact",
+//     element: <Contact></Contact>,
+//     errorElement:<Error></Error>,
+//   },
+//   {
+//     path: "/aboute",
+//     element: <About></About>,
+//   },
+// ]);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
-    errorElement:<Error></Error>,
-  },
-  {
-    path: "/contact",
-    element: <Contact></Contact>,
-    errorElement:<Error></Error>,
-  },
-  {
-    path: "/about",
-    element: <About></About>,
+    element: <Home></Home>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path:'/aboute',
+        element:<About></About>
+      },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+      },
+    ],
   },
 ]);
 
