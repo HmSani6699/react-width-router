@@ -12,6 +12,7 @@ import Friends from "./component/Friends/Friends";
 import FriendDetails from "./component/FriendDetails/FriendDetails";
 import Posts from "./component/Posts/Posts";
 import PostDetail from "./component/PostDetail/PostDetail";
+import Albums from "./component/Albums/Albums";
 
 // const router = createBrowserRouter([
 //   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         path: "post/:postId",
         element:<PostDetail></PostDetail>,
         loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+      },
+      {
+        path:'albums',
+        element:<Albums></Albums>
       },
       {
         path: "/about",
