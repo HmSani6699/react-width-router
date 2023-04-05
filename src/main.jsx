@@ -72,8 +72,9 @@ const router = createBrowserRouter([
         loader: () => fetch("https://jsonplaceholder.typicode.com/albums"),
       },
       {
-        path: "albume",
-        element:<AlbumeDetails></AlbumeDetails>
+        path: "albume/:albumeID",
+        element:<AlbumeDetails></AlbumeDetails>,
+        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/albums/${params.albumeID}`)
       },
       {
         path: "/about",
