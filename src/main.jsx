@@ -7,6 +7,8 @@ import Contact from "./component/Contact/Contact";
 import About from "./component/About/About";
 import Error from "./component/Error/Error";
 import Home from "./component/Home/Home";
+import Frist from "./component/Frist/Frist";
+import Friends from "./component/Friends/Friends";
 
 // const router = createBrowserRouter([
 //   {
@@ -25,23 +27,32 @@ import Home from "./component/Home/Home";
 //   },
 // ]);
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path:'/',
-    element:<Home></Home>,
-    errorElement:<Error></Error>,
-    children:[
+    path: "/",
+    element: <Home></Home>,
+    errorElement: <Error></Error>,
+    children: [
       {
-        path:'/about',
-        element:<About></About>
+        path: "/",
+        element: <Frist></Frist>,
       },
       {
-        path:'/contact',
-        element:<Contact></Contact>
-      }
-    ]
-  }
-])
+        path: "friends",
+        element: <Friends></Friends>,
+        loader:()=>fetch('https://jsonplaceholder.typicode.com/users')
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
