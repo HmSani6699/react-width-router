@@ -11,6 +11,7 @@ const Header = () => {
       <Link to="/friends">Friends</Link>
       <Link to='/posts'>Posts</Link>
       <Link to='/albums'>Albums</Link>
+      <Link to='/todos'>Todos</Link>
     </nav>
   );
 };

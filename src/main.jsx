@@ -14,6 +14,7 @@ import Posts from "./component/Posts/Posts";
 import PostDetail from "./component/PostDetail/PostDetail";
 import Albums from "./component/Albums/Albums";
 import AlbumeDetails from "./component/Albume/AlbumeDetailes/AlbumeDetails";
+import Todos from "./component/Todos/Todos";
 
 // const router = createBrowserRouter([
 //   {
@@ -73,8 +74,16 @@ const router = createBrowserRouter([
       },
       {
         path: "albume/:albumeID",
-        element:<AlbumeDetails></AlbumeDetails>,
-        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/albums/${params.albumeID}`)
+        element: <AlbumeDetails></AlbumeDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://jsonplaceholder.typicode.com/albums/${params.albumeID}`
+          ),
+      },
+      {
+        path: "/todos",
+        element: <Todos></Todos>,
+        loader:()=>fetch('https://jsonplaceholder.typicode.com/todos')
       },
       {
         path: "/about",
